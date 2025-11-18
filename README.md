@@ -1,34 +1,36 @@
 # 🐧 AlexData-Minimal-Linux-Arch-OS 🐧
-My personal instructions for how to install a minimal Linux Arch OS.
-The machine has a MSI motherboard, i9 CPU, 32gb ram, rtx5070, 12gb vram, M2.ssd + S-ata HDD.
-In this scenario this is a dual-boot with windows being installed on the M2.ssd (for now).
-While Linux is installed to the S-ata HDD (its partition 1[boot] and 4[root], partition 2 and 3 holds data.
+[git-md-text-formatting-help](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-🔥 **NB: PS: NEEDED: safeboot & TPM disabled in UEFI/BIOS. Fastboot, update, defender disabled in windows.**
+My personal instructions for how to install a minimal Linux Arch OS.  
+The machine has a MSI motherboard, i9 CPU, 32gb ram, rtx5070, 12gb vram, M2.ssd + S-ata HDD.  
+In this scenario this is a dual-boot with windows being installed on the M2.ssd (for now).  
+While Linux is installed to the S-ata HDD (its partition 1[boot] and 4[root], partition 2 and 3 holds data.  
 
-🔥 **NB: PS: NEEDED: ventoy-usb setup with Linux ISO files, as well as a grub config to load partitions (F6 menu).**
+🔥 **NB: PS: NEEDED: safeboot & TPM disabled in UEFI/BIOS. Fastboot, update, defender disabled in windows.**  
 
-🔥 **NB: PS: NEEDED: network-cable based internet - for speed and to avoid broken downloads.**
+🔥 **NB: PS: NEEDED: ventoy-usb setup with Linux ISO files, as well as a grub config to load partitions (F6 menu).**  
 
-_(more details on this may be added later - in a separate document - or right into this one)._
+🔥 **NB: PS: NEEDED: network-cable based internet - for speed and to avoid broken downloads.**  
 
-🐧 This is a fully hands-on-manual-labour-operation - nothing is currently automated during this install.
-If you're new to linux - try installing a few distro's first. CachyOS is the one closest to what this guide does!
-Since this is a minimal install, where the system is built piece by piece, package by package.
-The guide currently starts from the point where you have booted from your VENTOY usb, into the Arch Linux ISO.
-And you're presented with a bash login prompt.
+_(more details on this may be added later - in a separate document - or right into this one)._  
 
-🔥 **_NB: PS: Following this guide WILL GUARANTEED delete or owerwrite files, folders, partitions, and possibly whole disks!!_**
-🔥 **_NB: PS: So follow this guide on your own risk! Best practice: Try it out on a new blank virtual machine first! (safe - causes no real damage to personal files)._**
+🐧 This is a fully hands-on-manual-labour-operation - nothing is currently automated during this install.  
+If you're new to linux - try installing a few distro's first. CachyOS is the one closest to what this guide does!  
+Since this is a minimal install, where the system is built piece by piece, package by package.  
+The guide currently starts from the point where you have booted from your VENTOY usb, into the Arch Linux ISO.  
+And you're presented with a bash login prompt.  
+
+🔥 **_NB: PS: Following this guide WILL GUARANTEED delete or owerwrite files, folders, partitions, and possibly whole disks!!_**  
+🔥 **_NB: PS: So follow this guide on your own risk! Best practice: Try it out on a new blank virtual machine first! (safe - causes no real damage to personal files)._**  
 
 
-# INSTALL ARCH LINUX - FROM VENTOY USB (WITH ARCH LINUX ISO):
-Boot from VENTOY USB into ARCH LINUX OS - ISO file.
+# INSTALL ARCH LINUX - FROM VENTOY USB (WITH ARCH LINUX ISO):  
+Boot from VENTOY USB into ARCH LINUX OS - ISO file.  
 
-## 0. SHELL HOT-SWAPPING DURING INSTALL (TTY)(F1):
-LOGIN AS ROOT IN TTY1 (F1) BASH SHELL.
-You're now on TTY1 (virtual bash shell 1).
-Here you will open the Install Guide so you can read it during install.
+## 0. SHELL HOT-SWAPPING DURING INSTALL (TTY)(F1):  
+LOGIN AS ROOT IN TTY1 (F1) BASH SHELL.  
+You're now on TTY1 (virtual bash shell 1).  
+Here you will open the Install Guide so you can read it during install.  
 
 Press CTRL+ALT+F2 to enter TTY2 (virtual bash shell 2).
 LOGIN AS ROOT IN TTY2 (F2) SHELL.
