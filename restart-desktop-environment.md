@@ -1,4 +1,4 @@
-# RESTART DESKTOP ENVIRONMENT:
+# 🐧 RESTART DESKTOP ENVIRONMENT 🐧
 
 ### USE "TTY" THE VIRTUAL BASH SESSIONS AVAILABLE
 - Log in as "root" to stop and shut down unresponsive desktop environments.  
