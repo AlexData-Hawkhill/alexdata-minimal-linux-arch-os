@@ -59,7 +59,7 @@ echo $XDG_SESSION_TYPE
 export DISPLAY=0
 ```
 ```
-export XDG_SESSION_TPE=x11
+export XDG_SESSION_TYPE=x11
 ```
 ```
 plasmashell &             # Starts KDE-Plasma desktop environment.
