@@ -8,6 +8,9 @@ pacman -S gparted  # GUI Disk And Partition Manager
 pacman -S ntfs-3g ntfstools # Gparted dependencies
 ```
 ```bash
+pacman -S dosfstools mtools # Gparted dependencies
+```
+```bash
 pacman -S octopi # App store for pacman and aur.
 ```
 ```bash
