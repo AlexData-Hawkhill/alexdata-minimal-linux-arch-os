@@ -1,4 +1,4 @@
-# FIREWALL FOR LINUX ARCH:
+# 🐧 FIREWALL FOR LINUX ARCH: 🐧
 ### KDE-PLASMA BASED FIREWALL - FOR PLASMA DESKTOPS
 This firewall works very well with the KDE-PLASMA Desktop Environment!  
 And "Open Snitch" will give you very detailed control over your network.
