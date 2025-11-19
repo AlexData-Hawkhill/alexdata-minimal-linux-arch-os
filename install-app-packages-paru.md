@@ -1,4 +1,4 @@
-# INSTALLING APPS AND PACKAGES IN LINUX - WITH PARU: 
+# 🐧 INSTALLING APPS AND PACKAGES IN LINUX - WITH PARU 🐧 
 ## USING "PARU" (THE SECONDARY INSTALLER CHOSEN FOR ARCH):
 [git-md-text-formatting-help](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
