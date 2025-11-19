@@ -23,16 +23,30 @@ ps aux | grep kwin
 
 
 ### Reset the language - so that everything loads correctly upon restart
+1. Verify locale is generated:
+```
+locale -a | grep en_US
+```
+2. Set system locale (if not set):
 ```
 sudo localectl set-locale LANG=en_US.UTF-8
 ```
+3. Try to set user locale too:
 ```
-echo 'export LANG=en_US.UTF-8' >> .bashrc
+echo 'export LANG=en_US.UTF-8' >> ~/.bashrc
 ```
 ```
-# MAY ALSO TRY:
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+echo 'export LC_ALL=en_US.UTF-8' >> ~/.bashrc
+```
+
+4. Source bashrc (for current terminal):
+```
+source ~/.bashrc
+```
+
+5. Verify:
+```
+locale
 ```
 
 Check locale to be correct as what we set it to be "en_US.UTF-8" during install:
@@ -54,8 +68,8 @@ Logout from bash or any other graphical desktop you're in at this point.
 ```
 loginctl terminate-user $USER
 ```
+(IF IT IS ANOTHER USERS SESSION THAT IS THE PROBLEM)
 ```
-# IF IT IS ANOTHER USERS SESSION THAT IS THE PROBLEM:
 loginctl list-sessions
 loginctl terminate-session SESSION_ID
 ```
@@ -70,7 +84,7 @@ source ~/.bashrc
 killall plasmashell    # Allow it time to stop properly!
 ```
 
-### If you see more than one plasma environment running - kill the all with this:
+### If you see more than one plasma environment running - kill all of them with this:
 ```
 killall -9 plasmashell    # Force it to close instantly! If frozen!
 ```
