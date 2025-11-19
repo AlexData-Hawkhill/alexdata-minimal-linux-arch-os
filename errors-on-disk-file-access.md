@@ -1,4 +1,4 @@
-# CANNOT ACCESS THE BOOT PARTITON (FAT32 FORMATTED DISK):
+# CANNOT ACCESS THE BOOT PARTITON (FAT32 FORMAT DISK):
 
 ### And using Chown on folder or file does not chage the access either...
 
