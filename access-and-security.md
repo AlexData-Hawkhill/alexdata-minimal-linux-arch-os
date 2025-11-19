@@ -1,6 +1,6 @@
-# TAKING OWNERSHIP OVER FILES FOLDERS AND MOUNTED DRIVES:
+# 🐧 TAKING OWNERSHIP OVER FILES FOLDERS AND DRIVES 🐧
 
-### Chown Method:
+## Chown Method:
 
 ### Take ownership over folder, and subfolders, as normal (non root) user:
 (user=alexdata folder=/boot/info/ and -hR = all subfiles and subfolders)  
