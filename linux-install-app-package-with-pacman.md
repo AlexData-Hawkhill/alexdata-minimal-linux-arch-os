@@ -1,9 +1,10 @@
-# INSTALLING APPS AND PACKAGES IN LINUX: 
+# INSTALLING APPS AND PACKAGES IN LINUX ARCH - WITH PACMAN (DEFAULT INSTALLER): 
 [git-md-text-formatting-help](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+sudo pacman -S paru
 
 ### PACMAN - ONCE IN A WHILE TYPE COMMANDS (LINUX ARCH):
 > pacman -S                   # (update repositories).  
-> pacman -Sy                  # (UPDATE).  
+> pacman -Sy                  # (Synchronizing package databases).  
 > pacman -Sc                  # (Clean the CACHE folder for oldest downloaded packages).  
 > pacman -Scc                 # (Clean the CACHE folder for all downloaded packages).  
 > m.m  
