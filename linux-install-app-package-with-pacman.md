@@ -1,7 +1,6 @@
 # INSTALLING APPS AND PACKAGES IN LINUX ARCH
-### WITH PACMAN (THE DEFAULT INSTALLER FOR ARCH): 
+### USING "PACMAN" (THE DEFAULT INSTALLER FOR ARCH): 
 [git-md-text-formatting-help](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-sudo pacman -S paru
 
 ### PACMAN - ONCE IN A WHILE TYPE COMMANDS (LINUX ARCH):
 > pacman -S                   # (update repositories).  
