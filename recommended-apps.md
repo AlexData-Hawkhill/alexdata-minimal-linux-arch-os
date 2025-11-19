@@ -1,4 +1,4 @@
-# RECOMMENDED APPS:
+# 🐧 RECOMMENDED APPS 🐧
 
 ### System apps:
 ```bash
