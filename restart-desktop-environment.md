@@ -24,7 +24,7 @@ ps aux | grep kwin
 
 ### Reset the language - so that everything loads correctly upon restart
 ```
-sudo localecrl set-locale LANG=en_US.UTF-8
+sudo localectl set-locale LANG=en_US.UTF-8
 ```
 ```
 echo 'export LANG=en_US.UTF-8' >> .bashrc
