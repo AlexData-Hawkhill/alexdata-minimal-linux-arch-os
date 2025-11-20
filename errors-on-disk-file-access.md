@@ -352,4 +352,214 @@ sudo mount -t vfat -o uid=1000,gid=1000,fmask=0077,dmask=0077 /dev/sda1 /boot
 ls -la /boot/
 If this works → fstab has an issue
 If this still shows root:root → Something deeper is wrong
+
+
+[alexdata@arch-alexdata ~]$ systemctl daemon-reload^C [alexdata@arch-alexdata ~]$ cat /etc/fstab | grep boot UUID=4416-1D3E                               /boot      vfat            rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000                                                     0      2
+
+[alexdata@arch-alexdata ~]$ sudo umount /boot [sudo] password for alexdata:  [alexdata@arch-alexdata ~]$ sudo mount -t vfat -o rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro /dev/sda1 /boot [alexdata@arch-alexdata ~]$ mount | grep /boot /dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro) [alexdata@arch-alexdata ~]$ ls -la /boot/ total 151872 drwxr-xr-x  2 root root      4096 Nov 11 18:45 '$RECYCLE.BIN' drwxr-xr-x  8 root root      4096 Jan  1  1970  . drwxr-xr-x 17 root root      4096 Nov 20 00:24  .. -rwxr-xr-x  1 root root      1478 Nov 16 23:27  BOOTEX.LOG drwxr-xr-x  6 root root      4096 Nov 16 00:40  EFI drwxr-xr-x  2 root root      4096 Nov 11 18:45 'System Volume Information' drwxr-xr-x  2 root root      4096 Nov 16 04:26  VENTOY-GRUB-CONFIGS drwxr-xr-x  2 root root      8192 Nov 15 22:12  info -rwxr-xr-x  1 root root 124093975 Nov 17 01:43  initramfs-linux.img -rwxr-xr-x  1 root root  14934016 Nov 11 19:07  intel-ucode.img drwxr-xr-x  4 root root      4096 Nov 18 03:55  loader -rwxr-xr-x  1 root root  16441536 Nov 16 00:13  vmlinuz-linux [alexdata@arch-alexdata ~]$ cat /etc/fstab | grep boot #UUID=4416-1D3E                              /boot      vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro   0      2 UUID=4416-1D3E                               /boot      vfat            rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000                                                     0      2   [alexdata@arch-alexdata ~]$ systemctl list-units | grep boot  boot.mount                                                                                                 loaded active mounted   /boot  systemd-boot-random-seed.service                                                                           loaded active exited    Update Boot Loader Random Seed  systemd-bootctl.socket                                                                                     loaded active listening Boot Entries Service Socket [alexdata@arch-alexdata ~]$ ls -la /etc/systemd/system/boot.mount ls: cannot access '/etc/systemd/system/boot.mount': No such file or directory [alexdata@arch-alexdata ~]$ cat /etc/systemd/system/boot.mount cat: /etc/systemd/system/boot.mount: No such file or directory [alexdata@arch-alexdata ~]$ grep -v '^#' /etc/fstab | grep boot UUID=4416-1D3E                               /boot      vfat            rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000                                                     0      2   [alexdata@arch-alexdata ~]$ sudo findmnt --verify Success, no errors or warnings detected [alexdata@arch-alexdata ~]$ sudo umount /boot [alexdata@arch-alexdata ~]$ sudo mount -a [alexdata@arch-alexdata ~]$ mount | grep boot /dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro) [alexdata@arch-alexdata ~]$ ls -la /boot/ total 151872 drwxr-xr-x  2 root root      4096 Nov 11 18:45 '$RECYCLE.BIN' drwxr-xr-x  8 root root      4096 Jan  1  1970  . drwxr-xr-x 17 root root      4096 Nov 20 00:24  .. -rwxr-xr-x  1 root root      1478 Nov 16 23:27  BOOTEX.LOG drwxr-xr-x  6 root root      4096 Nov 16 00:40  EFI drwxr-xr-x  2 root root      4096 Nov 11 18:45 'System Volume Information' drwxr-xr-x  2 root root      4096 Nov 16 04:26  VENTOY-GRUB-CONFIGS drwxr-xr-x  2 root root      8192 Nov 15 22:12  info -rwxr-xr-x  1 root root 124093975 Nov 17 01:43  initramfs-linux.img -rwxr-xr-x  1 root root  14934016 Nov 11 19:07  intel-ucode.img drwxr-xr-x  4 root root      4096 Nov 18 03:55  loader -rwxr-xr-x  1 root root  16441536 Nov 16 00:13  vmlinuz-linux [alexdata@arch-alexdata ~]$
+
+Since i edited it just a moment ago (fstab) i know for sure it has more than "  " (two spaces) between each option, seems tab or many tabs were used between each option.
+
+Edited the /etc/fstab to remove spaces, to add item[2spaces]item[2spaces] like you said, 
+will try all commands again!
+Result:
+
+[alexdata@arch-alexdata ~]$ su - Password:  [root@arch-alexdata ~]# ^C [root@arch-alexdata ~]# nano /etc/fstab [root@arch-alexdata ~]# cat /etc/fstab | grep boot #UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2 #UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2 UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0  2   [root@arch-alexdata ~]# sudo findmnt --verify   [W] your fstab has been modified, but systemd still uses the old version;       use 'systemctl daemon-reload' to reload 0 parse errors, 0 errors, 1 warning [root@arch-alexdata ~]# systemctl daemon-reload [root@arch-alexdata ~]# sudo findmnt --verify Success, no errors or warnings detected [root@arch-alexdata ~]# sudo umount /boot [root@arch-alexdata ~]# sudo mount -a [root@arch-alexdata ~]# mount | grep boot /dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro) [root@arch-alexdata ~]# ls -la /boot/ total 151872 drwxr-xr-x  8 root root      4096 Jan  1  1970  . drwxr-xr-x 17 root root      4096 Nov 20 00:24  .. drwxr-xr-x  2 root root      4096 Nov 11 18:45 '$RECYCLE.BIN' -rwxr-xr-x  1 root root      1478 Nov 16 23:27  BOOTEX.LOG drwxr-xr-x  6 root root      4096 Nov 16 00:40  EFI drwxr-xr-x  2 root root      8192 Nov 15 22:12  info -rwxr-xr-x  1 root root 124093975 Nov 17 01:43  initramfs-linux.img -rwxr-xr-x  1 root root  14934016 Nov 11 19:07  intel-ucode.img drwxr-xr-x  4 root root      4096 Nov 18 03:55  loader drwxr-xr-x  2 root root      4096 Nov 11 18:45 'System Volume Information' drwxr-xr-x  2 root root      4096 Nov 16 04:26  VENTOY-GRUB-CONFIGS -rwxr-xr-x  1 root root  16441536 Nov 16 00:13  vmlinuz-linux [root@arch-alexdata ~]# ^C [root@arch-alexdata ~]# cat /etc/fstab | grep boot #UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2 #UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2 UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0  2   [root@arch-alexdata ~]# sudo findmnt --verify Success, no errors or warnings detected [root@arch-alexdata ~]# systemctl daemon-reload [root@arch-alexdata ~]# mount | grep boot /dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro) [root@arch-alexdata ~]# ls -la /boot/ total 151872 drwxr-xr-x  8 root root      4096 Jan  1  1970  . drwxr-xr-x 17 root root      4096 Nov 20 00:24  .. drwxr-xr-x  2 root root      4096 Nov 11 18:45 '$RECYCLE.BIN' -rwxr-xr-x  1 root root      1478 Nov 16 23:27  BOOTEX.LOG drwxr-xr-x  6 root root      4096 Nov 16 00:40  EFI drwxr-xr-x  2 root root      8192 Nov 15 22:12  info -rwxr-xr-x  1 root root 124093975 Nov 17 01:43  initramfs-linux.img -rwxr-xr-x  1 root root  14934016 Nov 11 19:07  intel-ucode.img drwxr-xr-x  4 root root      4096 Nov 18 03:55  loader drwxr-xr-x  2 root root      4096 Nov 11 18:45 'System Volume Information' drwxr-xr-x  2 root root      4096 Nov 16 04:26  VENTOY-GRUB-CONFIGS -rwxr-xr-x  1 root root  16441536 Nov 16 00:13  vmlinuz-linux [root@arch-alexdata ~]#
+
+[root@arch-alexdata ~]# ls -la /usr/lib/systemd/system-generators/systemd-gpt-auto-generator -rwxr-xr-x 1 root root 39504 Nov 10 10:11 /usr/lib/systemd/system-generators/systemd-gpt-auto-generator [root@arch-alexdata ~]#
+(did not mask it yet - not sure how to read this output)
+
+did not run the quick debug script, but ran it manually:
+
+[root@arch-alexdata ~]# whoami
+root
+[root@arch-alexdata ~]# id
+uid=0(root) gid=0(root) groups=0(root)
+[root@arch-alexdata ~]# mount | grep boot
+/dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro)
+[root@arch-alexdata ~]# ls -ld /boot/
+drwxr-xr-x 8 root root 4096 Jan  1  1970 /boot/
+[root@arch-alexdata ~]# grep boot /etc/fstab
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0  2  
+[root@arch-alexdata ~]# systemctl list-units | grep boot
+  boot.mount                                                                                                 loaded active mounted   /boot
+  systemd-boot-random-seed.service                                                                           loaded active exited    Update Boot Loader Random Seed
+  systemd-bootctl.socket                                                                                     loaded active listening Boot Entries Service Socket
+[root@arch-alexdata ~]# exit
+logout
+[alexdata@arch-alexdata ~]$ whoami
+alexdata
+[alexdata@arch-alexdata ~]$ id
+uid=1000(alexdata) gid=1000(alexdata) groups=1000(alexdata),998(wheel)
+[alexdata@arch-alexdata ~]$ mount | grep boot
+/dev/sda1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro)
+[alexdata@arch-alexdata ~]$ ls -ld /boot/
+drwxr-xr-x 8 root root 4096 Jan  1  1970 /boot/
+[alexdata@arch-alexdata ~]$ grep boot /etc/fstab
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0  2  
+[alexdata@arch-alexdata ~]$ grep boot /etc/fstab
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+#UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0  2  
+[alexdata@arch-alexdata ~]$ 
+
+trust me, i mounted and unmounted - but, yes, systemd has asked me once or twice to use alternative method "systemctl daemon-reload" a few times, so that one is surely partly active doing things...
+
+Show less
+
+Identified systemd-gpt-auto-generator overriding fstab mount options.
+12s
+
+
+
+
+
+
+
+
+
+
+🎯 FOUND IT! SYSTEMD-GPT-AUTO-GENERATOR IS THE CULPRIT!
+
+Look at your mount output:
+
+bash
+fmask=0022,dmask=0022  # ← Wrong! Should be 0077!
+# Missing: uid=1000,gid=1000
+Even though fstab has the correct options, they're being ignored!
+
+THE PROBLEM:
+systemd-gpt-auto-generator automatically mounts EFI partitions with default options BEFORE fstab is read!
+
+It sees your EFI partition and thinks: "I'll mount this helpfully!" but uses its own default options, ignoring your fstab! 😤
+
+THE FIX - DISABLE AUTO-GENERATOR:
+bash
+# 1. Mask the auto-generator (disable it):
+sudo systemctl mask systemd-gpt-auto-generator
+
+# 2. Reboot (necessary for generator changes):
+sudo reboot
+After reboot:
+
+bash
+# Check mount:
+mount | grep boot
+# Should NOW show: fmask=0077,dmask=0077,uid=1000,gid=1000
+
+# Check ownership:
+ls -la /boot/
+# Should show: drwx------ alexdata alexdata
+ALTERNATIVE - CREATE SYSTEMD MOUNT UNIT (Override Generator):
+If you don't want to disable the generator, create a mount unit that takes precedence:
+
+bash
+# Create mount unit:
+sudo nano /etc/systemd/system/boot.mount
+Add this:
+
+ini
+[Unit]
+Description=EFI System Partition
+Documentation=man:systemd.special(7)
+Before=local-fs.target
+Conflicts=umount.target
+Before=umount.target
+
+[Mount]
+What=/dev/disk/by-uuid/4416-1D3E
+Where=/boot
+Type=vfat
+Options=rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro
+
+[Install]
+WantedBy=local-fs.target
+Enable it:
+
+bash
+# Reload systemd:
+sudo systemctl daemon-reload
+
+# Enable the mount unit:
+sudo systemctl enable boot.mount
+
+# Stop any existing mount:
+sudo systemctl stop boot.mount
+
+# Start with new settings:
+sudo systemctl start boot.mount
+
+# Check mount:
+mount | grep boot
+
+# Check ownership:
+ls -la /boot/
+VERIFY GENERATOR IS CAUSING THE ISSUE:
+bash
+# Check what the generator created:
+ls -la /run/systemd/generator/boot.mount
+
+# Show its contents:
+cat /run/systemd/generator/boot.mount
+This file is auto-generated by systemd-gpt-auto-generator and overrides your fstab!
+
+MY RECOMMENDATION:
+Option 1: Mask the generator (Simplest!)
+bash
+sudo systemctl mask systemd-gpt-auto-generator
+sudo reboot
+Pros:
+
+Simple one command
+fstab will work as expected
+No extra files to manage
+Cons:
+
+Disables auto-mounting for ALL GUID partitions (not just /boot)
+If you add more disks, they won't auto-mount
+Option 2: Create mount unit (More control)
+bash
+sudo nano /etc/systemd/system/boot.mount
+# (add config from above)
+sudo systemctl daemon-reload
+sudo systemctl enable boot.mount
+sudo systemctl start boot.mount
+Pros:
+
+Keeps generator active for other partitions
+More "systemd native" approach
+Can be managed with systemctl
+Cons:
+
+More complex
+Redundant with fstab
+I RECOMMEND OPTION 1:
+bash
+# Just mask it and reboot:
+sudo systemctl mask systemd-gpt-auto-generator
+sudo reboot
+After reboot, your fstab will finally be respected! 🎯
+
+WHY THIS HAPPENS:
+systemd has a mount priority order:
+
+🥇 systemd generators (highest priority!)
+🥈 systemd mount units (/etc/systemd/system/*.mount)
+🥉 /etc/fstab (lowest priority!)
+The generator runs FIRST and creates a mount unit in /run/systemd/generator/ that overrides fstab!
+
+Masking the generator removes it from the priority chain!
+
+TRY THE MASK COMMAND AND REBOOT! 🔥
+
+bash
+sudo systemctl mask systemd-gpt-auto-generator
+sudo reboot
+I bet this will finally fix it! 🐧✨
+
+(You've done everything else perfectly - this generator was the hidden enemy!) 🎯⚡
 -->
