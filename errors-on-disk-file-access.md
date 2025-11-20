@@ -273,4 +273,83 @@ mount | grep boot
 
 # 11. Check ownership:
 ls -la /boot/
+
+IF STILL ROOT:ROOT AFTER ALL THAT:
+There might be a systemd mount generator creating the mount before fstab is read!
+Check systemd-gpt-auto-generator:
+bash# This auto-mounts EFI partitions!
+ls -la /usr/lib/systemd/system-generators/systemd-gpt-auto-generator
+
+# Mask it (disable auto-mounting):
+sudo systemctl mask systemd-gpt-auto-generator
+
+# Reboot:
+sudo reboot
+
+ALTERNATIVE FIX - Create systemd Mount Unit:
+If fstab keeps getting overridden, create a proper systemd mount unit:
+bash# Create mount unit:
+sudo nano /etc/systemd/system/boot.mount
+Add:
+ini[Unit]
+Description=EFI System Partition with ownership
+Before=local-fs.target
+
+[Mount]
+What=/dev/sda1
+Where=/boot
+Type=vfat
+Options=rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro
+
+[Install]
+WantedBy=local-fs.target
+Enable it:
+bashsudo systemctl daemon-reload
+sudo systemctl enable boot.mount
+sudo reboot
+
+QUICK DEBUG SCRIPT:
+bash#!/bin/bash
+echo "=== BOOT MOUNT DEBUGGING ==="
+echo ""
+echo "1. Current user:"
+whoami
+id
+
+echo ""
+echo "2. Current /boot mount:"
+mount | grep boot
+
+echo ""
+echo "3. /boot ownership:"
+ls -ld /boot/
+
+echo ""
+echo "4. fstab /boot entry:"
+grep boot /etc/fstab
+
+echo ""
+echo "5. Systemd boot mount units:"
+systemctl list-units | grep boot
+
+echo ""
+echo "6. Test manual mount:"
+echo "Run: sudo umount /boot && sudo mount -o uid=1000,gid=1000,fmask=0077,dmask=0077 /dev/sda1 /boot"
+Save as debug-boot.sh, run:
+bashchmod +x debug-boot.sh
+./debug-boot.sh
+
+MY GUESS:
+Your /etc/fstab probably looks correct, BUT:
+
+Either you didn't unmount/remount after editing
+OR systemd is auto-mounting /boot before fstab is read
+OR there's a typo/spacing issue in fstab
+
+Try the manual mount command first:
+bashsudo umount /boot
+sudo mount -t vfat -o uid=1000,gid=1000,fmask=0077,dmask=0077 /dev/sda1 /boot
+ls -la /boot/
+If this works → fstab has an issue
+If this still shows root:root → Something deeper is wrong
 -->
