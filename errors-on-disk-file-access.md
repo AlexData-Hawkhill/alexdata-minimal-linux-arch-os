@@ -193,3 +193,84 @@ This gives:
 > - No hard links  
 > - No executable bit  
 ### Solution: Set ownership at mount time, not per-file or folder! 🔥
+
+<!--
+TROUBLESHOOTING STEPS:
+1. Check What's Actually IN Your fstab:
+bashcat /etc/fstab | grep boot
+```
+
+**Should show:**
+```
+UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000  0 2
+If it's missing uid/gid or looks different, that's the problem!
+
+2. Manual Test - Force Remount with Correct Options:
+bash# Unmount:
+sudo umount /boot
+
+# Remount with FULL options:
+sudo mount -t vfat -o rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro /dev/sda1 /boot
+
+# Check mount options now:
+mount | grep /boot
+
+# Check ownership:
+ls -la /boot/
+If this works, but fstab doesn't → Something is overriding fstab!
+
+3. Check for systemd Mount Unit Overrides:
+bash# Check if systemd has a mount unit for /boot:
+systemctl list-units | grep boot
+
+# Check for mount override:
+ls -la /etc/systemd/system/boot.mount
+
+# If it exists, show it:
+cat /etc/systemd/system/boot.mount
+If this file exists, it's overriding your fstab!
+
+4. Check Your Actual fstab Entry:
+bash# Show the exact line:
+grep -v '^#' /etc/fstab | grep boot
+Common mistakes:
+
+Extra spaces
+Wrong UUID
+Missing uid= or gid=
+Typos in options
+
+
+COMPLETE FIX - STEP BY STEP:
+bash# 1. Backup current fstab:
+sudo cp /etc/fstab /etc/fstab.backup
+
+# 2. Edit fstab properly:
+sudo nano /etc/fstab
+
+# 3. Find the /boot line (search with Ctrl+W, type "boot")
+
+# 4. Make it look EXACTLY like this (one line, no line breaks!):
+UUID=4416-1D3E  /boot  vfat  rw,relatime,fmask=0077,dmask=0077,uid=1000,gid=1000,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro  0  2
+
+# 5. Important: Make sure there are TWO spaces between columns:
+# UUID=4416-1D3E[SPACE][SPACE]/boot[SPACE][SPACE]vfat[SPACE][SPACE]...
+
+# 6. Save: Ctrl+O, Enter, Ctrl+X
+
+# 7. Verify it saved correctly:
+cat /etc/fstab | grep boot
+
+# 8. Test fstab syntax:
+sudo findmnt --verify
+
+# 9. Unmount and remount:
+sudo umount /boot
+sudo mount -a
+
+# 10. Check mount:
+mount | grep boot
+
+# 11. Check ownership:
+ls -la /boot/
+-->
