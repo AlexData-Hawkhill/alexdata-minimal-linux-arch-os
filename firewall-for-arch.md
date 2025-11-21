@@ -34,7 +34,7 @@ sudo pacman -S opensnitch
 
 <br><br>
 
-# ERRORS:
+# ERROR-FIXING:
 <hr>
 
 ### Errors - Then Check firewalld status:
@@ -56,6 +56,7 @@ sudo firewall-cmd --state  # Output expected: "running"!
 ```bash
 sudo firewall-cmd --get-active-zones   # List zones and network interfaces!
 ```
+_info on polkit (policy errors with regard to firewall maintenance) will be added soon_
 
 <br><br> 
 
@@ -67,6 +68,7 @@ _Coming soon..._
 - [ ] Installing...
 - [ ] Setup...
 - [ ] Daily Use...
+- [ ] Basic Error handling...
 
 
 <!--
