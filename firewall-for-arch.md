@@ -49,12 +49,12 @@ sudo systemctl enable --now firewalld
 
 ### Errors - Then Check if it's running:
 ```bash
-sudo firewall-cmd --state  # Output expected: "running"
+sudo firewall-cmd --state  # Output expected: "running"!
 ```
 
 ### Errors - Then Verify zones:
 ```bash
-sudo firewall-cmd --get-active-zones
+sudo firewall-cmd --get-active-zones   # List zones and network interfaces!
 ```
 
 <br><br> 
