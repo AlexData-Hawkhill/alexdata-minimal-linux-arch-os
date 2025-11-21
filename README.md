@@ -1,5 +1,33 @@
-# 🐧 AlexData-Minimal-Linux-Arch-OS 🐧
-[git-md-text-formatting-help](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+# 🐧 AlexData-Minimal-Linux-Arch-OS [🐧](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+Current Progress For This Project:
+- [x] Install instructions (_first edition - needs editing_) !!
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/README.md#-alexdata-minimal-linux-arch-os-)
+- [x] Installing apps and packages - near complete! 
+      [Link-1](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/install-app-packages-pacman.md#-installing-apps-and-packages-in-linux-arch-)
+      [Link-2](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/install-app-packages-paru.md#-installing-apps-and-packages-in-linux-)
+- [x] Restart Desktop Environment - near complete! 
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/restart-desktop-environment.md#-restart-desktop-environment-)
+- [ ] Firewall Installation and Usage - started...
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/firewall-for-arch.md#-firewall-for-linux-arch-)
+- [x] Environment variables - near complete!
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/environment-variables.md#-environment-variables---in-linux-os-)
+- [ ] Recommended apps - started...
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/recommended-apps.md#-recommended-apps-)
+- [ ] File and Folder Access Issues - started...
+      [Link-1](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/file-and-folder-access.md#-taking-ownership-over-files-folders-and-drives-)
+      [Link-2](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/errors-on-disk-file-access.md#-cannot-access-the-boot-partiton-fat32-format-)
+- [ ] System backup - started... (_many scripts written - none uploaded yet_)
+      [Link](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/system-backup.md#-backing-up-your-linux-arch-system-)
+- [ ] Better readability for all files - started...
+      [Link]()
+- [ ] Error handling when installing ARCH OS from USB OR DVD...
+      [Link]()
+- [ ] Error handling when OS is up and running...
+      [Link]()
+- [ ] Checks to perform after first boot (firewall, mounts, app-packages, update, m.m) - indirectly started...
+      [Link-1](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/firewall-for-arch.md#-firewall-for-linux-arch-)
+      [Link-2](coming-soon)
 
 My personal instructions for how to install a minimal Linux Arch OS.  
 The machine has a MSI motherboard, i9 CPU, 32gb ram, rtx5070, 12gb vram, M2.ssd + S-ata HDD.  
