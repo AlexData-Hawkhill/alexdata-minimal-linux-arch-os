@@ -68,3 +68,33 @@ _Coming soon..._
 - [ ] Setup...
 - [ ] Daily Use...
 
+
+<!--
+If GUI Still Shows Error:
+The polkit authentication agent might not be running!
+bash# Check if polkit agent is running:
+ps aux | grep polkit
+
+# Start KDE's polkit agent:
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+# Or make it autostart:
+mkdir -p ~/.config/autostart
+cp /etc/xdg/autostart/polkit-kde-authentication-agent-1.desktop ~/.config/autostart/
+
+Alternative - Fix Polkit Rules:
+bash# Create polkit rule for firewalld:
+sudo nano /etc/polkit-1/rules.d/50-firewalld.rules
+Add:
+javascriptpolkit.addRule(function(action, subject) {
+    if (action.id == "org.fedoraproject.FirewallD1.all" &&
+        subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+    }
+});
+Save, then:
+bash# Restart polkit:
+sudo systemctl restart polkit
+
+# Try GUI again
+-->
