@@ -28,6 +28,8 @@ Current Progress For This Project:
 - [ ] Checks to perform after first boot (firewall, mounts, app-packages, update, m.m) - indirectly started...
       [Link-1](https://github.com/AlexData-Hawkhill/alexdata-minimal-linux-arch-os/blob/main/firewall-for-arch.md#-firewall-for-linux-arch-)
       [Link-2](coming-soon)
+- [x] A copy of my .bashrc file - place this in your homefolder (PS: rename any old .bashrc file present - dont just delete it - preserve it)
+      [Link](/bashrc)
 
 My personal instructions for how to install a minimal Linux Arch OS.  
 The machine has a MSI motherboard, i9 CPU, 32gb ram, rtx5070, 12gb vram, M2.ssd + S-ata HDD.  
