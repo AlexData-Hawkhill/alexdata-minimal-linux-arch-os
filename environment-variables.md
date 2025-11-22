@@ -106,3 +106,24 @@ See all exported variables sorted:
 
 Paths are usefull in scripting, in bash directly, and in Python as well as other code languages.  
 Also when it comes to servers, and when working with virtual environments, as well as apps like FFMPEG.  
+
+### WHERE TO PUT PERMANENT PATH ADDITIONS:
+Add to ~/.bashrc:  
+```export PATH="$PATH:/your/custom/path"```  
+
+### Example:
+```export PATH="$PATH:$HOME/bin:$HOME/.local/bin"```  
+
+### Or in ~/.bash_profile (login shell):
+```PATH="$PATH:$HOME/scripts"```  
+```export PATH```  
+
+### View your complete Linux environment:
+Save everything for reference:  
+```env > ~/my-environment.txt```  
+```set > ~/my-shell-variables.txt```  
+```declare > ~/my-declarations.txt```  
+
+### View all environment variables:
+```cat ~/my-environment.txt```  
+
