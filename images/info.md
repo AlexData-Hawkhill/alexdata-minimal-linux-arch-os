@@ -1,4 +1,4 @@
-# How to use images:
+# How to use images in github projects:
 
 When images are found it looks like this:  
 
