@@ -638,6 +638,11 @@ List packages by size (largest first) (head -20 is where you define how many to 
 ```pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | head -20```
 
 
+
+
+
+
+<!--
 ------------------------
 COMPLETE CLEANUP SCRIPT:
 ------------------------
@@ -1185,5 +1190,7 @@ NOW YOU HAVE:
 ✅ Restore scripts for reinstalls
 ✅ Complete system snapshot capability
 
+-->
+
 Last edit:
-AlexData 17.nov.2025
+AlexData 22.nov.2025
