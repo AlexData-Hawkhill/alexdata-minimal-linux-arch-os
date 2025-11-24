@@ -1,4 +1,4 @@
-# Admin rights on Linux (Sudo, SU, [and DoAs])
+# 🐧 Admin rights on Linux - Sudo, SU, [and DoAs] 🐧
 Learn how to gain Administrator access in Linux.  
 Also figure out how to fix Administrator access when it's broken - or not properly working.  
 So this document is basically "**anything su or sudo related**" (_I may also include DoAs info eventually_).
