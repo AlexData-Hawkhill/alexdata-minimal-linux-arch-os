@@ -11,10 +11,9 @@ Also, important to note: _Claude has a great sense of humor - but not all of tha
 
 <br>
 
-# Public Conversation link: 
-(if i decide to share it here after it is done)  
+# Public Conversation link (after ended convo): 
 
-![/extra-info/link.png](_no link to ai convo shared yet_)
+![_--no link to public Alex Claude conversation shared yet--_](/extra-info/Ai-read-my-logs-and-my-git.md)
 
 <br>
 
