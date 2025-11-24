@@ -36,6 +36,16 @@ cat /etc/sudoers | grep wheel
 ```bash
 passwd -S alexdata    # Try with your own normal username!
 ```
+Expected output explained:  
+alexdata P 2025-11-16 0 99999 7 -1  
+         │ │           │ │     │ │  
+         │ │           │ │     │ └─ No inactivity lock.  
+         │ │           │ │     └─── 7 days warning before expiry.  
+         │ │           │ └───────── 99999 days until password expires.  
+         │ │           └─────────── Min 0 days between changes.  
+         │ └─────────────────────── Last changed: Nov 16, 2025.  
+         └───────────────────────── P = Password set and valid.  
+           
 
 ###  5. Verify PAM is working:
 ```bash
