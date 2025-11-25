@@ -3,30 +3,36 @@
 #
 
 # If not running bash interactively, then don't do anything.
-[[ $- != *i* ]] && return
+#[[ $- != *i* ]] && return
 
 # Color things nicely in Bash Terminals!
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+
+#PS1='[\u@\h \W]\$ '
 
 clear # EMPTY ALL OLD INFORMATION FROM BASH STDOUT (the terminal window)!!
 
 echo ""
 echo "AlexData .bashrc -- [$HOSTNAME/$USER]"
 echo ""
+echo "Linux: dircolors, sensors, cat, rm, rmdir, cp, users, groups, rsync, clear, touch"
+echo ""
 echo "Func: findfile <*file*>, findword <*airplan*>"
+echo "Func: recent_files <number> [path], new_files <number> [path], old_files <number> [path]"
 echo ""
-echo "Func: security, re, rebash, rebasher, catbash, readbash, edit, bashedit, editbash, kateedit"
-echo "Func: packs, packages, distro, sysinfo, netinfo, bootowner"
-echo "Func: helper, commands, kommandoer"
+echo "Func: repeat, re, rebash, basher, catbash, readbash, edit, bashedit, editbash, kateedit"
+echo "Func: packs, packages, security, distro, sysinfo, netinfo, bootowner"
+echo "Func: helper, commands, kommandoer, bashstory, history"
 echo ""
-echo "Alias: cls, dir, copy, rename, ren, del, delete, copy, move, more, read"
-echo "Alias: mounted, disk, partition, diskpart, bashstory, history"
+echo "Alias: cls, dir, copy, rename, ren, del, delete, copy, move, more"
+echo "Alias: mounted, disk, partition, diskpart"
 echo "Alias: distro, sysinfo, netinfo, bootowner"
 echo "Alias: size, usersize, lsd, ls"
 echo ""
 echo "Alias: home, root, desktop, local, config, media"
+echo ""
+echo "Hint: Type 're' or 'repeat' to see all this info again!"
 echo ""
 echo "Logged on as user:" $USER "on the machine:" $HOSTNAME
 USERPATH=$(pwd);#Sets the variable USERPATH to contain command PWD's output!
@@ -53,7 +59,6 @@ alias del='rm'
 alias delete='rm'
 alias move='mv'
 alias more='cat'
-alias read='cat'
 
 # ALEXDATA SPECIAL LINUX ALIASES:
 alias ls='ls -a  --color=auto'
@@ -65,12 +70,12 @@ alias usersize='echo ""; echo "Storage space used by << $USER >> for storing per
 alias size='echo ""; echo "This folder and its subfolders use this amount of storage space: "; du -sh; echo ""'
 
 # List disks and partitions:
-alias partitions='lsblk -f'
-alias partition='lsblk -f'
-alias diskparts='lsblk -f'
-alias diskpart='lsblk -f'
-alias disks='lsblk -f'
-alias disk='lsblk -f'
+alias partitions='echo ""; lsblk -f; echo ""; df -kh; echo ""'
+alias partition='echo ""; lsblk -f; echo ""; df -kh; echo ""'
+alias diskparts='echo ""; lsblk -f; echo ""; df -kh; echo ""'
+alias diskpart='echo ""; lsblk -f; echo ""; df -kh; echo ""'
+alias disks='echo ""; lsblk -f; echo ""; df -kh; echo ""'
+alias disk='echo ""; lsblk -f; echo ""; df -kh; echo ""'
 
 
 # List security on the current server/machine
@@ -84,8 +89,9 @@ mapfile -t cmds < <(compgen -c)
 echo "NB: PS: Press CTRL+C to stop listing the commands!"
 for ((i=0; i<${#cmds[@]}; i++)); do
   echo "${cmds[i]}"
-  ((i%10==9)) && read -p "[Key]"
+  ((i%10==9)) && read -p "[Displayed $i commands - Press any key to see 10 more - ctrl+c to exit]" && echo ""
 done
+echo ""
 }
 
 
@@ -95,8 +101,9 @@ mapfile -t cmds < <(compgen -c)
 echo "NB: PS: Press CTRL+C to stop listing the commands!"
 for ((i=0; i<${#cmds[@]}; i++)); do
   echo "${cmds[i]}"
-  ((i%10==9)) && read -p "[Key]"
+  ((i%10==9)) && read -p "[Displayed $i commands - Press any key to see 10 more - ctrl+c to exit]" && echo ""
 done
+echo ""
 }
 
 # The "helper" will list busybox/coreutils commandos in easy to read groups!
@@ -105,8 +112,9 @@ echo "NB: PS: Press CTRL+C to stop listing the commands!"
 mapfile -t cmds < <(compgen -c)
 for ((i=0; i<${#cmds[@]}; i++)); do
   echo "${cmds[i]}"
-  ((i%10==9)) && read -p "[Key]"
+  ((i%10==9)) && read -p "[Displayed $i commands - Press any key to see 10 more - ctrl+c to exit]" && echo ""
 done
+echo ""
 }
 
 
@@ -123,6 +131,11 @@ source ~/.bashrc
 }
 
 function re {
+echo "Restarting bash..."
+source ~/.bashrc
+}
+
+function repeat {
 echo "Restarting bash..."
 source ~/.bashrc
 }
@@ -171,16 +184,43 @@ kate ~/.bashrc
 echo "Document was opened in Kate Editor"
 }
 
+
+# ---------------------------------
+# Function: recent_files <number> [path] - Find the files that just changed on the system!
+recent_files() {
+    local n=${1:-10}
+    local path=${2:-/}
+    sudo find "$path" -type f -exec stat --format '%Y :%y %n' {} \; 2>/dev/null \
+        | sort -nr | head -n "$n" | cut -d: -f2-
+}
+
+# Function: new_files <number> [path] - Find the files that just changed on the system!
+new_files() {
+    local n=${1:-5}
+    local path=${2:-/home/$USER}
+    sudo find "$path" -type f -exec stat --format '%Y :%y %n' {} \; 2>/dev/null \
+        | sort -nr | head -n "$n" | cut -d: -f2-
+}
+
+# Function: old_files <number> [path] - Find the oldest filechanges on the system!
+old_files() {
+    local n=${1:-5}
+    local path=${2:-/home/$USER}
+    sudo find "$path" -type f -exec stat --format '%Y :%y %n' {} \; 2>/dev/null \
+        | sort -n | head -n "$n" | cut -d: -f2-
+}
+
+
 # ---------------------------------
 # Quick file finder (shorter than typing find)
 # Usage: findfile phpinfo
-function ffile {
+function findfile {
     find . -name "*$1*" 2>/dev/null
 }
 
 # Quick grep through files to find specific words
 # Usage: findword "some text"
-function fword {
+function findword {
     grep -r "$1" . 2>/dev/null
 }
 
