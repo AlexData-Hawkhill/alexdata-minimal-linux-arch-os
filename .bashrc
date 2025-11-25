@@ -24,6 +24,9 @@ echo ""
 echo "Alias: cls, dir, copy, rename, ren, del, delete, copy, move, more, read"
 echo "Alias: mounted, disk, partition, diskpart, bashstory, history"
 echo "Alias: distro, sysinfo, netinfo, bootowner"
+echo "Alias: size, usersize, lsd, ls"
+echo ""
+echo "Alias: home, root, desktop, local, config, media"
 echo ""
 echo "Logged on as user:" $USER "on the machine:" $HOSTNAME
 USERPATH=$(pwd);#Sets the variable USERPATH to contain command PWD's output!
@@ -31,7 +34,15 @@ echo "You are located here right now: $USERPATH"
 echo ""
 timedatectl # Display current time, this lets you check if local time is actually correct!
 echo ""
-#
+
+# PATH ALIASES:
+alias root='cd /; ls; echo ""'
+alias home='cd ~/; ls; echo ""'
+alias desktop='cd ~/Desktop/; ls; echo ""'
+alias local='cd ~/.local/; ls; echo ""'
+alias config='cd ~/.config/; ls; echo ""'
+alias media='cd /run/media/$USER/; ls; echo ""'
+
 # DOS ALIASES:
 alias cls='clear'
 alias dir='ls -lah'
@@ -43,9 +54,10 @@ alias delete='rm'
 alias move='mv'
 alias more='cat'
 alias read='cat'
-#
-# ALEXDATA SPECIAL ALIASES:
-alias ls='ls -a'
+
+# ALEXDATA SPECIAL LINUX ALIASES:
+alias ls='ls -a  --color=auto'
+alias lsd='ls -lah  --color=auto'
 alias cd..='cd ..'
 
 # Show disk usage sorted by user folders:
