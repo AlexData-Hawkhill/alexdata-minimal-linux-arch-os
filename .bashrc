@@ -10,18 +10,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-/*
-# ALEXDATA REMOTE SSH SFTP SERVER ONLY - ONLY:
-#alias notepad='echo $1 $2 >> /home/alexdata.com/notepad.txt; cat /home/alexdata.com/notepad.txt; echo ---'
-#alias home='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /home/alexdata.com;ls;echo'
-#alias www='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /customers/4/7/8/alexdata.com/httpd.www;ls;echo'
-#alias alexdata='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /customers/4/7/8/alexdata.com/httpd.www;ls;echo'
-#alias root='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /;ls;echo'
-#alias info='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /home/alexdata.com;ls -a;echo;echo;echo info [source ~/.bashrc] - incomplete line, see ssh remote'
-##This restarts the ssh shell.;echo info [nano .bashrc] - This edits the shell settings in [home] folder.;echo info [find . -name "filenam*"] - This lets you search for files.;echo'
-# ssh alexdata.com@ssh.alexdata.com
-*/
-
 clear # EMPTY ALL OLD INFORMATION FROM BASH STDOUT (the terminal window)!!
 
 echo ""
