@@ -10,22 +10,38 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+/*
+# ALEXDATA REMOTE SSH SFTP SERVER ONLY - ONLY:
+#alias notepad='echo $1 $2 >> /home/alexdata.com/notepad.txt; cat /home/alexdata.com/notepad.txt; echo ---'
+#alias home='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /home/alexdata.com;ls;echo'
+#alias www='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /customers/4/7/8/alexdata.com/httpd.www;ls;echo'
+#alias alexdata='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /customers/4/7/8/alexdata.com/httpd.www;ls;echo'
+#alias root='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /;ls;echo'
+#alias info='echo -Special-Alex-Alias-Symlink-Command-;echo;cd /home/alexdata.com;ls -a;echo;echo;echo info [source ~/.bashrc] - incomplete line, see ssh remote'
+##This restarts the ssh shell.;echo info [nano .bashrc] - This edits the shell settings in [home] folder.;echo info [find . -name "filenam*"] - This lets you search for files.;echo'
+# ssh alexdata.com@ssh.alexdata.com
+*/
+
 clear # EMPTY ALL OLD INFORMATION FROM BASH STDOUT (the terminal window)!!
 
 echo ""
 echo "AlexData .bashrc -- [$HOSTNAME/$USER]"
 echo ""
-echo "Func: security, re, rebashdistro, sysinfo, netinfo, bootowner, rebash, rebasher, catbash, readbash"
 echo "Func: findfile <*file*>, findword <*airplan*>"
-echo "Func: helper, commands, kommandoer, packs, packages"
+echo ""
+echo "Func: security, re, rebash, rebasher, catbash, readbash, edit, bashedit, editbash, kateedit"
+echo "Func: packs, packages, distro, sysinfo, netinfo, bootowner"
+echo "Func: helper, commands, kommandoer"
 echo ""
 echo "Alias: cls, dir, copy, rename, ren, del, delete, copy, move, more, read"
-echo "Alias: disk, partition, diskpart, bashstory, history"
+echo "Alias: mounted, disk, partition, diskpart, bashstory, history"
 echo "Alias: distro, sysinfo, netinfo, bootowner"
 echo ""
 echo "Logged on as user:" $USER "on the machine:" $HOSTNAME
 USERPATH=$(pwd);#Sets the variable USERPATH to contain command PWD's output!
 echo "You are located here right now: $USERPATH"
+echo ""
+timedatectl # Display current time, this lets you check if local time is actually correct!
 echo ""
 #
 # DOS ALIASES:
@@ -149,6 +165,12 @@ function edit {
 nano ~/.bashrc
 }
 
+
+function kateedit {
+kate ~/.bashrc
+echo "Document was opened in Kate Editor"
+}
+
 # ---------------------------------
 # Quick file finder (shorter than typing find)
 # Usage: findfile phpinfo
@@ -218,10 +240,12 @@ MY_UID=$(id -u)
 # Get your current Linux distribution:
 function distro {
     cat /etc/os-release | grep "PRETTY_NAME" | cut -d'"' -f2
+    echo ""
 }
 
 # Quick system info:
 function sysinfo {
+    echo ""
     echo "System Information:"
     echo "  Distribution: $(cat /etc/os-release | grep "PRETTY_NAME" | cut -d'"' -f2)"
     echo "  Kernel: $(uname -r)"
@@ -229,18 +253,61 @@ function sysinfo {
     echo "  CPU: $(lscpu | grep "Model name" | cut -d':' -f2 | xargs)"
     echo "  Memory: $(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
     echo "  Disk: $(df -h / | awk 'NR==2 {print $3 "/" $2 " (" $5 ")"}')"
+    echo ""
 }
 
 # Quick network info:
 function netinfo {
+    echo ""
     echo "Network Information:"
-    echo "  Hostname: $HOSTNAME"
-    echo "  Local IP: $(hostname -I | awk '{print $1}')"
-    echo "  Gateway: $(ip route | grep default | awk '{print $3}')"
+    echo "Hostname: $HOSTNAME"
+    #echo "Local IP: $(hostname -I | awk '{print $1}')"
+    echo "Local IP:"
+    echo "$(ip address | grep inet | awk '{print $2}')"
+    echo "Gateway: $(ip route | grep default | awk '{print $3}')"
+    echo ""
 }
 
-# Check boot ownership (for your doc!):
+# Check boot and root ownership:
 function bootowner {
-    OWNER=$(ls -ld /boot | awk '{print $3}')
-    echo "Boot partition owner: $OWNER"
+    BOOT_OWNER=$(ls -ld /boot | awk '{print $3}')
+    ROOT_OWNER=$(ls -ld / | awk '{print $3}')
+    PART_OWNER=$(ls -ld /run | awk '{print $3}')
+    echo "Boot  partition owner: $BOOT_OWNER"
+    echo "Root  partition owner: $ROOT_OWNER"
+    echo "Media partition owner: $PART_OWNER"
+    echo ""
+    lsblk | grep /    # List only mounted partitons!
+    echo ""
 }
+
+# Check boot and root ownership:
+function mounted {
+    BOOT_OWNER=$(ls -ld /boot | awk '{print $3}')
+    ROOT_OWNER=$(ls -ld / | awk '{print $3}')
+    PART_OWNER=$(ls -ld /run | awk '{print $3}')
+    echo "Boot  partition owner: $BOOT_OWNER"
+    echo "Root  partition owner: $ROOT_OWNER"
+    echo "Media partition owner: $PART_OWNER"
+    echo ""
+    lsblk | grep /    # List only mounted partitons!
+    echo ""
+}
+
+# ----------------------------------
+# ----------------------------------
+## Always quote variables with spaces/newlines:
+#FILES=$(ls)
+#echo "$FILES"  # ← Quotes preserve formatting!
+
+## Use $() instead of backticks (more readable):
+#GOOD=$(pwd)     # Clear and nestable
+#BAD=`pwd`       # Old style, harder to read
+
+## Check if command succeeded:
+#OUTPUT=$(some_command 2>&1)
+#if [ $? -eq 0 ]; then
+#    echo "Success: $OUTPUT"
+#else
+#    echo "Failed: $OUTPUT"
+#fi
