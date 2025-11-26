@@ -70,7 +70,11 @@ _coming soon..._
 <br>
 
 ### Script for auto starting any venv:  
-_coming soon..._  
+Place This Script Inside Any Python Venv Project Folder On Your Machine.  
+This Script Will Automatically Start The Python Venv For You!  
+Also It Runs A Few Tests That Let You Determine If You'Re In The Correct Venv!  
+Modified To Work On Linux: Kde (Konsole), Gnome, Xfce, Alpine Linux, And Fallback To Xterm.  
+
 [.SH Script for auto starting any Python VENV](/scripts/auto-start-python-venv.sh)
 
 <br>
