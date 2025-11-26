@@ -64,6 +64,41 @@ pip3 install <package-name>    # E.g "pip3 install wxpython"
 
 <br>
 
-### Empty the PIP cache for temporary files
+### Empty the PIP cache for temporary files:
 _coming soon..._
+
+<br>
+
+### Script for auto starting any venv:  
+_coming soon..._  
+[.SH Script for auto starting any Python VENV](/scripts/auto-start-python-venv.sh)
+
+<br>
+
+### Other handy VENV and Python related info:  
+**Python version in venv:**   
+```bash
+bashpython --version  
+which python # Both show venv python!  
+```
+
+**Recreate venv if broken:**  
+```bash
+bashrm -rf venv_name  
+python -m venv venv_name  
+source venv_name/bin/activate  
+pip install -r requirements.txt  # If you saved them  
+```
+
+**Save PIP installed packages:**
+```bash
+bashpip freeze > requirements.txt  
+```
+
+**Install PIP packages from saved list:**  
+```bash
+bashpip install -r requirements.txt  
+```
+
+<br>
 
