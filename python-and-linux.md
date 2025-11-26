@@ -72,6 +72,11 @@ bashpip cache purge
 pip cache remove *
 ```
 
+Or manual deletion of the PIP cache folder:  
+```bash
+rm -rf ~/.cache/pip    # PIP and Python rebuild this folder when needed!
+```
+
 <br>
 
 ### Script for auto starting any venv:  
