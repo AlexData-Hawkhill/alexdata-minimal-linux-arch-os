@@ -65,7 +65,12 @@ pip3 install <package-name>    # E.g "pip3 install wxpython"
 <br>
 
 ### Empty the PIP cache for temporary files:
-_coming soon..._
+```
+bashpip cache purge
+```
+```bash
+pip cache remove *
+```
 
 <br>
 
