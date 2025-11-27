@@ -1,3 +1,40 @@
+/*
+
+THE PERFECT .BASHRC STRUCTURE:
+bash#!/bin/bash
+# ~/.bashrc
+
+# ===========================================
+# PART 1: ALWAYS LOADED (Functions, Variables)
+# ===========================================
+
+# Set locale first!
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Define all your functions here:
+new_files() { ... }
+old_files() { ... }
+packages() { ... }
+# ... etc ...
+
+# ===========================================
+# PART 2: INTERACTIVE-ONLY (Aliases, Welcome)
+# ===========================================
+
+# Stop here if not interactive:
+[[ $- != *i* ]] && return
+
+# Now your interactive-only stuff:
+clear
+echo "AlexData .bashrc -- [$HOSTNAME/$USER]"
+# ... welcome messages ...
+# ... aliases that use interactive features ...
+timedatectl
+
+/*
+
+
 #
 # ~/.bashrc
 #
