@@ -1,5 +1,5 @@
-# 🐧 INFO ABOUT BASH AND LINUX'S MANY SHELLS 🐚
-_...walking along the linux shore while picking sea shells without bashing them..._
+# 🐧🏖️ INFO ABOUT BASH AND LINUX'S MANY SHELLS 🐚🐧
+_...walking along the linux shore while sourcing sea shells without bashing them apart..._
 
 <br>
 
