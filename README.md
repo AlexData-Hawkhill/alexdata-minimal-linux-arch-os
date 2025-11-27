@@ -206,6 +206,17 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf  # OK Add this info to locale file to
 echo "KEYMAP=no" > /etc/vconsole.conf       # OK Copy here so that console also uses this layout.
 ```
 
+## 15.5 Check Your Locale
+```
+localectl      # Show OS language and keyboard layout.
+```
+```
+locale -a       # Show details about UTF8.
+```
+```
+locale       # Show all language related settings.
+```
+
 ## 16. Set Hostname / Computer-name
 ```
 echo "arch-alexdata" > /etc/hostname        # OK Set your preferred username.
