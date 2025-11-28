@@ -46,6 +46,12 @@ echo "💾 Disk usage after cleaning:"
 df -h / | tail -1
 echo ""
 
+# 7. Python if user wants to delete that (present user with Y/n prompt for python - since rebuilding wheels take time!):
+# Add logic for presenting user with a choice (e.g. read -p "select Y/n" + logic to handle that)
+#bashpip cache purge
+#pip cache remove *
+#rm -rf ~/.cache/pip  
+
 # Done !!
 echo "✅ Cleanup complete!"
 echo ""
