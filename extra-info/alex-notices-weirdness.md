@@ -1,3 +1,4 @@
+# 🐧🔍 DIARY OF WEIRD DISCOVERIES 🔎🐧
 -----------------------------------------------------
 WEIRD THING ALEX NOTICES 001 - WILL FIGURE OUT LATER:
 -----------------------------------------------------
