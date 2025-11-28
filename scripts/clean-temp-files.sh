@@ -33,7 +33,7 @@ echo ""
 
 # 4. Clean paru/AUR cache (cleans even more than pacman does):
 echo "🔧 Cleaning AUR cache..."
-paru -Sc --noconfirm
+sudo paru -Sc --noconfirm
 echo ""
 
 # 5. Remove old journal logs (keep last 3 days):
@@ -48,9 +48,14 @@ echo ""
 
 # 7. Python if user wants to delete that (present user with Y/n prompt for python - since rebuilding wheels take time!):
 # Add logic for presenting user with a choice (e.g. read -p "select Y/n" + logic to handle that)
-#bashpip cache purge
-#pip cache remove *
-#rm -rf ~/.cache/pip  
+# PS: NB: NON SUDO COMMANDS (WE WANT TO DELETE USERS PIP CACHE - NOT EMPTY ROOT CACHE)
+#exit
+#pip cache dir        # Show folder location!
+#pip cache info       # Show info on how much space it uses (do | grep for size: ?)
+# PRESENT USER WITH CHOICE HERE - AFTER HAVING DISPLAYED SIZE INFO!
+#pip cache purge      # Empty cache!
+#pip cache remove *   # Completely empty cache!
+#rm -rf ~/.cache/pip  # Empty and delete cache folder!
 
 # Done !!
 echo "✅ Cleanup complete!"
