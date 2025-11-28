@@ -1,7 +1,20 @@
 -----------------------------------------------------
 WEIRD THING ALEX NOTICES 001 - WILL FIGURE OUT LATER:
 -----------------------------------------------------
+[alexdata@arch-alexdata ~]$ locale -a
+C
+C.utf8
+en_US.utf8
+nb_NO.utf8
+POSIX
 
+C, C.utf8, POSIX -- Seems to be LINUX/UNIX default locale, language or keyboard-layout!
+en_US.utf8, nb_NO.utf8 -- was selected by me during install, and later during repairs!
+////
+
+-----------------------------------------------------
+WEIRD THING ALEX NOTICES 002 - WILL FIGURE OUT LATER:
+-----------------------------------------------------
 BASH in KONSOLE - SEES THIS:
 
 sda1        8:1    0   3.2G  0 part /boot
@@ -20,20 +33,25 @@ Preliminary conclusions:
 /media/ might be a "symlink" or "some type mount" to /user/1000/ that is my main user "alexdata"
 /doc/14887beb/ seems to be some random folders created by some part of the linux system (a just mount folder)
 /SHARED-LINUX is the name/label of the sda2 partition on the SDA disk. (This is equally seen by both!)
+////
 
 
 -----------------------------------------------------
 WEIRD THING ALEX NOTICES 003 - WILL FIGURE OUT LATER:
 -----------------------------------------------------
 
+////
 
 -----------------------------------------------------
 WEIRD THING ALEX NOTICES 004 - WILL FIGURE OUT LATER:
 -----------------------------------------------------
 
+////
 
 -----------------------------------------------------
 WEIRD THING ALEX NOTICES 005 - WILL FIGURE OUT LATER:
 -----------------------------------------------------
+
+////
 
 
