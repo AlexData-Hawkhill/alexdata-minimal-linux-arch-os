@@ -5,7 +5,7 @@ If the PolicyKit stops working for unknown reasons, you will get weird errors li
 <br>
 
 **_Errors when accessing mounted disks_**
-![Another image of a polkit error](/images/polkit-error-2.webp)
+![Another image of a polkit error](/images/polkit-error-1.webp)
 
 <br>
 
