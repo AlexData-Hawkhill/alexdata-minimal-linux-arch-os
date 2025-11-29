@@ -160,3 +160,57 @@ echo ""
 # RUN-SCRIPT-IN-TERMINAL:
 # ./clean-temp-files.sh
 # sh clean-temp-files.sh
+
+
+# This function can also be used - for even more finegrained control of python pip deletions!
+better_clean_python_pip_cache() {
+    echo "🔧 Advanced - Cleaning PIP CACHE generated when building Python packages..."
+    
+    # Check if pip (python-pip package) exists
+    if command -v pip &> /dev/null; then
+        echo "📦 Found PIP for PYTHON installed - do you want to fully clean the PIP CACHE...?"
+        echo ""
+        
+        # Show cache info with size highlighted
+        echo "📍 Cache location:"
+        pip cache dir
+        echo ""
+        echo "📊 Cache statistics:"
+        pip cache info | grep -E "(Location|Size)" || pip cache info
+        echo ""
+        
+        read -p "Delete the whole PIP cache? (y/N): " USER_ANSWER
+        USER_ANSWER=$(echo "$USER_ANSWER" | tr '[:upper:]' '[:lower:]')
+        
+        if [[ "$USER_ANSWER" == "y" || "$USER_ANSWER" == "yes" ]]; then
+            echo "🧹 Purging pip cache..."
+            pip cache purge 2>/dev/null || true
+            
+            echo "🧹 Removing cache directory..."
+            rm -rf ~/.cache/pip 2>/dev/null || true
+            
+            echo "✅ Python's PIP cache completely cleaned!"
+        else
+            echo "⏭️  Python's PIP cache cleaning skipped."
+        fi
+    else
+        echo "⚠️  PIP for PYTHON not installed - auto skipping this step..."
+    fi
+    
+    echo ""
+}
+
+# Bonus: Check for pip3 too!
+clean_python_pip_cache_extended() {
+    # Call original function for pip
+    clean_python_pip_cache
+    
+    # Also check pip3 (in case separate installation)
+    if command -v pip3 &> /dev/null && ! command -v pip &> /dev/null; then
+        echo "📦 Found PIP3 (but not pip) - cleaning pip3 cache..."
+        pip3 cache purge 2>/dev/null || true
+        rm -rf ~/.cache/pip 2>/dev/null || true
+        echo "✅ Pip3 cache cleaned!"
+    fi
+}
+
