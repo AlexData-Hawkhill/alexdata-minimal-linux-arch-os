@@ -214,3 +214,9 @@ clean_python_pip_cache_extended() {
     fi
 }
 
+# MAKE-THIS-SCRIPT-EXECUTABLE:
+# bashchmod +x clean-temp-files.sh
+
+# RUN-SCRIPT-IN-TERMINAL:
+# ./clean-temp-files.sh
+# sh clean-temp-files.sh
