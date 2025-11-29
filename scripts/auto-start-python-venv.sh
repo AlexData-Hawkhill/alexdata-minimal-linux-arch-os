@@ -88,8 +88,15 @@ $TERMINAL_CMD bash -c "
     exec bash
 "
 
+# MAKE-THIS-SCRIPT-EXECUTABLE:
+# bashchmod +x clean-temp-files.sh
+
+# RUN-SCRIPT-IN-TERMINAL:
+# ./clean-temp-files.sh
+# sh clean-temp-files.sh
+
 # --------------------------------------------------------
 # This Script Was Invented By AlexData for Windows In 2025
 # Translated To Bash By AlexData & Claude In 2025
-# With Auto-Detection For Linux Multi-System Support !!!!!
+# Added Auto-Detection For Linux Multi-System Support !!!!!
 # --------------------------------------------------------
