@@ -1,8 +1,12 @@
 #!/bin/bash
 # Fix locale for Qt/Python apps
 
-# To make this script executable you must run: 
-# chmod +x set-mixed-locale-no-en.sh
+# MAKE-THIS-SCRIPT-EXECUTABLE:
+# bashchmod +x clean-temp-files.sh
+
+# RUN-SCRIPT-IN-TERMINAL:
+# ./clean-temp-files.sh
+# sh clean-temp-files.sh
 
 echo "Fixing locale configuration..."
 
