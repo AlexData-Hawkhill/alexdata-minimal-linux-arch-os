@@ -1,5 +1,3 @@
-/*
-
 THE PERFECT .BASHRC STRUCTURE:
 bash#!/bin/bash
 # ~/.bashrc
@@ -31,8 +29,6 @@ echo "AlexData .bashrc -- [$HOSTNAME/$USER]"
 # ... welcome messages ...
 # ... aliases that use interactive features ...
 timedatectl
-
-/*
 
 
 #
