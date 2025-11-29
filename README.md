@@ -3,7 +3,7 @@
 When all the following documents below get a checkmark ☑️ - then this git repo is ready for use by anyone!  
 You can use it now -  _if_ you're very well versed with managing either windows or linux systems...  
 If you're not afraid of testing and trying - installing and reinstalling apps and operating systems.  
-[Read more about this project]([/README.md#my-personal-instructions-for-how-to-install--minimal-linux-arch-os-)) and why I started it, below this short list!
+[Read more about this project](/README.md#my-personal-instructions-for-how-to-install--minimal-linux-arch-os-)) and why I started it, below this short list!
 
 **Current Progress For This "_Edit Minimal Arch Manual For Others - While I Learn Linux Myself_" Project:**
 - [x] Install instructions for Minimal Arch OS (_first edition - still needs some editing_) !!  
