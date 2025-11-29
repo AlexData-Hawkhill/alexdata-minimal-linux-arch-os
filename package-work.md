@@ -35,7 +35,7 @@ pacman -Q | grep -E "(plasma|gnome|xfce|mate|cinnamon|lxde|lxqt)" > ~/installed-
 
 ### Octopi (APP / GUI) [pacman -s octopi]:
 Use this app-store to install, uninstall, search for, or learn about installed or soon to be installed packages!  
-Click through the installed packages - read what they do - figue out what you want to remove manually.
+Click through the installed packages - read what they do - figue out what you want to remove manually.  
 Or use 🔎search function🔍 in octopi if you know what you're looking for!  
 ![Octopi App](/images/octopi-app.webp)
 <br>
