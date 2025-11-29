@@ -22,8 +22,8 @@ Current Progress For This "_Edit Git Manual For Others - While We Learn Linux Ou
 - [ ] System backup - started... (_many scripts written - none uploaded yet_)  
       [Link: system-backup.md](/system-backup.md)  
 
-- [ ] Working with app packages... (install, uninstall, backup, m.m)
-      [Started: package-work.md](/package-work.md)  
+- [ ] Working with app packages... (install, uninstall, backup, m.m)  
+      [Started: package-work.md](/package-work.md)   
       
 - [ ] Error handling when installing ARCH OS from USB or DVD...  
       [Coming: soon](/arch-minimal-install.md)  
