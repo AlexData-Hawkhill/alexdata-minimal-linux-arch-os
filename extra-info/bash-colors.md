@@ -69,4 +69,47 @@ Result: alexdata@hostname:~/path$
 
 <br>
 
+### VALUES USED - EXPLAINED:
+\t  = Time (HH:MM:SS)  
+\u  = Username  
+\h  = Hostname    
+\w  = Current directory (full path)  
+\W  = Current directory (basename only)  
+\$  = $ for user, # for root  
+\n  = Newline  
 
+### Colors:
+\[\e[1;36m\]  = Bright cyan  
+\[\e[1;32m\]  = Bright green  
+\[\e[1;33m\]  = Bright yellow  
+\[\e[1;34m\]  = Bright blue    
+\[\e[1;35m\]  = Bright magenta  
+\[\e[0m\]     = Reset color  
+
+<br>
+
+### FANCY ADVANCED TWO-LINE PROMPT's:
+AlexData special edition:
+```bash
+PS1='\n\[\e[1;36m\]╭─[\[\e[1;32m\]\t\[\e[1;36m\]][\[\e[1;33m\]\u\[\e[1;36m\]][\[\e[1;35m\]\h\[\e[1;36m\]][\[\e[1;34m\]\w\[\e[1;36m\]]\n╰─\
+[\e[1;31m\]→\[\e[0m\] '
+```
+```
+Result:
+╭─[03:30:45][alexdata][hostname][~/path]
+╰─→ 
+```
+
+### The git branch looks (bonus!):
+parse_git_branch() {  
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'  
+}  
+
+```bash
+PS1='\n\[\e[1;36m\]╭─[\[\e[1;32m\]\t\[\e[1;36m\]][\[\e[1;33m\]\u\[\e[1;36m\]][\[\e[1;34m\]\w\[\e[1;36m\]]\[\e[1;35m\]$(parse_git_branch)\[\e[0m\]\n\[\e[1;36m\]╰─\[\e[1;31m\]→\[\e[0m\] '
+```
+```
+Result:
+╭─[03:30:45][alexdata][~/my-repo](main)
+╰─→
+```
