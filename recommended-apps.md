@@ -32,10 +32,15 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 ```bash
 flatpak install -y flathub com.vivaldi.Vivaldi
 ```
+
 Vivaldi start command:
 ```bash
 /bin/flatpak run --branch=stable --arch=x86_64 --command=vivaldi --file-forwarding com.vivaldi.Vivaldi @@u %U @@
 ```
+```bash
+exec /usr/bin/flatpak run --branch=stable --arch=x86_64 com.vivaldi.Vivaldi "$@"
+```
+
 What folder was Vivaldi installed to:
 ```bash
 flatpak info --show-location com.vivaldi.Vivaldi
