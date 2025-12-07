@@ -9,12 +9,12 @@ xinit /usr/bin/firefox -- :1    # If you have followed this guide before the use
 <br>
 
 ### System Packages Needed (Already installed with ArchOS or CachyOS):
-- xorg-server is a X Window System [developer-info](https://www.x.org/releases/X11R7.7/doc/)  
-- xorg-xinit is needed to start X servers [developer-info](https://xorg.freedesktop.org/wiki/)  
+The xorg-server is a X Window System display server [developer-info](https://www.x.org/releases/X11R7.7/doc/)  
+The xorg-xinit is used to start X display servers [developer-info](https://xorg.freedesktop.org/wiki/)  
 ```bash
 sudo pacman -S xorg-server xorg-xinit    # If you dont have them - install them! Must have!
 ```
-- openbox is the Window Manager (it draws all type windows - like those you see in your normal desktop environment)
+The openbox is the Window Manager (it draws all type windows - like those you see in your normal desktop environment)
 ```bash
 sudo pacman -S openbox    # If you dont have it- install it! Must have!
 ```
@@ -36,8 +36,9 @@ The xorg-xclock and xorg-xeyes are "a tiny gui clock" and a "tiny follow mousepo
 ```bash
 pacman -S xorg-xclock xorg-xeyes    # tiny GUI apps to test with
 ```
+<br>
 
-If you want to test out all the 36 or more xGUI apps (you can always remove them later)  
+PS: If you want to test out all the 36 or more xGUI apps (you can always remove them later)  
 ```bash
 sudo pacman -S xorg-apps   # all 36 tiny GUI apps to test openbox with
 ```
