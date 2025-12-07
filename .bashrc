@@ -3,7 +3,7 @@
 # #
 
 # # ====================================================
-# # ℹ️🐧        INFO ABOUT BASH (ASH) (SH)           🐧ℹ️   
+# # ℹ️🐧        INFO ABOUT BASH (ASH) (SH)          🐧ℹ️   
 # # - ""/etc/bash.bashrc"" is the GLOBAL bashrc file  🔧
 # # - ""~/.bashrc"" is your current users bashrc file 🔧
 # # - Anything in "bash.bashrc" will be seen in TTY's 🔧
