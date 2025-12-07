@@ -8,16 +8,39 @@ xinit /usr/bin/firefox -- :1    # If you have followed this guide before the use
 
 <br>
 
-### System Packages Needed (likely already installed):
+### System Packages Needed (Already installed with ArchOS or CachyOS):
 - xorg-server is a X Window System [developer-info](https://www.x.org/releases/X11R7.7/doc/)  
 - xorg-xinit is a [developer-info](https://xorg.freedesktop.org/wiki/)  
 ```bash
-sudo pacman -S xorg-server xorg-xinit
+sudo pacman -S xorg-server xorg-xinit    # If you dont have them - install them! Must have!
+```
+- openbox is the Window Manager (it draws all type windows - like those you see in your normal desktop environment)
+```bash
+sudo pacman -S openbox    # If you dont have it- install it! Must have!
+```
+<br>
+
+### App Packages Needed for testing (may not be installed):
+
+The xrandr and arandr are text and GUI based ways of setting up several monitors connected to your machine! A must have!  
+```bash
+sudo pacman -S xorg-xrandr arandr # The arandr is a gui alternative to xrandr - Setting up monitors size, orientation, m.m!!
 ```
 
-### App Packages Needed (may not be installed):
+The xterm is a very tiny basic graphical bash konsole. [developer-info](https://invisible-island.net/xterm/)  A must have!
+```bash
+sudo pacman -S xterm    # tiny GUI terminal for starters!
+```
 
-sudo pacman -S xorg-apps
+The xorg-xclock and xorg-xeyes are "a tiny gui clock" and a "tiny follow mousepointer visually type app"...  
+```bash
+pacman -S xorg-xclock xorg-xeyes    # tiny GUI apps to test with
+```
+
+If you want to test out all the 36 or more xGUI apps (you can always remove them later)  
+```bash
+sudo pacman -S xorg-apps   # all 36 tiny GUI apps to test openbox with
+```
 :: There are 36 members in group xorg-apps:
 :: Repository cachyos-extra-v3
    1) xorg-bdftopcf  2) xorg-iceauth  3) xorg-mkfontscale  4) xorg-sessreg  5) xorg-setxkbmap  6) xorg-smproxy  7) xorg-x11perf  8) xorg-xauth
@@ -25,24 +48,6 @@ sudo pacman -S xorg-apps
    16) xorg-xhost  17) xorg-xinput  18) xorg-xkbcomp  19) xorg-xkbevd  20) xorg-xkbprint  21) xorg-xkbutils  22) xorg-xkill  23) xorg-xlsatoms
    24) xorg-xlsclients  25) xorg-xmodmap  26) xorg-xpr  27) xorg-xprop  28) xorg-xrandr  29) xorg-xrdb  30) xorg-xrefresh  31) xorg-xset
    32) xorg-xsetroot  33) xorg-xvinfo  34) xorg-xwd  35) xorg-xwininfo  36) xorg-xwud
-
-The xrandr and arandr are text and GUI based ways of setting up several monitors connected to your machine! A must have!  
-```bash
-sudo pacman -S xorg-xrandr arandr # The arandr is a gui alternative to xrandr - Setting up monitors size, orientation, m.m!!
-```
-The xterm is a very tiny basic graphical bash konsole. [developer-info](https://invisible-island.net/xterm/)  A must have!
-```bash
-sudo pacman -S xterm    # tiny GUI terminal for starters!
-```
-The xorg-xclock and xorg-xeyes are "a tiny gui clock" and a "tiny follow mousepointer visually type app"...  
-```bash
-pacman -S xorg-xclock xorg-xeyes    # tiny GUI apps to test with
-```
-If you want to test them out (you can always remove them later) 
-
-```bash
-sudo pacman -S xorg-apps   # all 36 tiny GUI apps to test openbox with
-```
 
 <br>
 
