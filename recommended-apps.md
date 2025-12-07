@@ -22,7 +22,7 @@ pacman -S btop  # CPU CPU MEM taskmanager like info with live update!
 
 <br>
 
-Vivaldi installing:
+Vivaldi browswer installing (flatpak):
 ```bash
 sudo pacman -S flatpak --needed
 ```
@@ -35,4 +35,8 @@ flatpak install -y flathub com.vivaldi.Vivaldi
 Vivaldi start command:
 ```bash
 /bin/flatpak run --branch=stable --arch=x86_64 --command=vivaldi --file-forwarding com.vivaldi.Vivaldi @@u %U @@
+```
+What folder was Vivaldi installed to:
+```bash
+flatpak info --show-location com.vivaldi.Vivaldi
 ```
