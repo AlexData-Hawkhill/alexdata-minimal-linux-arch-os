@@ -1,9 +1,3 @@
-### 🐧 Openbox Window Manager 🐧
-This window manager can be used as a basic desktop environent.  
-It will let you run graphical applications without a full desktop environment.  
-...coming soon...  
-# (The TTY guide below will be used as part of the "openbox guide" <<-- coming soon!) <br><br>
-
 # 🐧 Run GUI apps in a free TTY 🐧
 The X window systemm can be used as a basic desktop environent.  
 It will let you run graphical applications without a full desktop environment.  
