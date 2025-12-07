@@ -8,6 +8,25 @@ xinit /usr/bin/firefox -- :1    # If you have followed this guide before the use
 
 <br>
 
+### You have Virtual Terminals (TTY) on most Linux systems:
+
+Pressing CTRL+ALT+F1 (or F2, F3, F4, F5, F6, F7, F8) will present you with Virtual Bash Terminals!  
+Most often the grapical desktop you are running is placed on TTY1 (ctrl+alt+f1) or TTY7/8 (ctrl+alt+f7/f8).  
+And normally you will have 6-7 free virtual desktops (cli) available for text command input!  
+
+You can login as "root" or your own username (type "echo $USER" in bash if you forgot your username, of if using a live-cd).  
+
+Ever wonder what exact TTY you're in at the moment? Write `tty` + Enter, and you will be told what TTY you're inside of!  
+(This "tty" command even works from a Bash / Konsole / Terminal when you're already in your normal GUI desktop environment!)  
+
+Switch between TTY's by pressing CTRL+ALT+F? (1,2,3,4,5,6,7,8) (e.g. CTRL+ALT+F1).  
+This way you can switch back and forth between the different command line interfaces (cli) and any graphical desktops loaded!  
+If you followed my minimal Arch Install Guide, then seeing this bash login will feel a bit familiar.  
+
+We will use these Virtual Terminals (TTY) for running text commands, and opening openbox window manager (as a basic desktop environment).  
+
+<br>
+
 ### System Packages Needed (Already installed with ArchOS or CachyOS):
 The xorg-server is a X Window System display server [developer-info](https://www.x.org/releases/X11R7.7/doc/)  
 The xorg-xinit is used to start X display servers [developer-info](https://xorg.freedesktop.org/wiki/)  
