@@ -2,6 +2,17 @@
 # # ~/.bashrc
 # #
 
+# # ====================================================
+# # ℹ️🐧        INFO ABOUT BASH (ASH) (SH)           🐧ℹ️   
+# # - ""/etc/bash.bashrc"" is the GLOBAL bashrc file  🔧
+# # - ""~/.bashrc"" is your current users bashrc file 🔧
+# # - Anything in "bash.bashrc" will be seen in TTY's 🔧
+# # - "bash.bashrc" loads before users " .bashrc"     🔧
+# # ====================================================
+# USEFUL EMOJI'S: ℹ️ ❓ ❎ ❌ ↩️ ❕ ✅ ❔ ‼️ ⚠️ ☑️ ❗ 🔥 🔀 💾 💿 📀 🕸️ 🚧 📈 🔧
+
+
+
 # # =============================================
 # # PART 1: ALWAYS LOADED (System Variables)   🐧
 # # - Double-clicking .sh file → Usually   YES ✅
