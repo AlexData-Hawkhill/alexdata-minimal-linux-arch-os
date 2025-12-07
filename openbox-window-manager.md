@@ -10,7 +10,7 @@ xinit /usr/bin/firefox -- :1    # If you have followed this guide before the use
 
 ### System Packages Needed (Already installed with ArchOS or CachyOS):
 - xorg-server is a X Window System [developer-info](https://www.x.org/releases/X11R7.7/doc/)  
-- xorg-xinit is a [developer-info](https://xorg.freedesktop.org/wiki/)  
+- xorg-xinit is needed to start X servers [developer-info](https://xorg.freedesktop.org/wiki/)  
 ```bash
 sudo pacman -S xorg-server xorg-xinit    # If you dont have them - install them! Must have!
 ```
