@@ -223,4 +223,44 @@ bashexec openbox-session
 # 2. Handles session management (proper logout/shutdown)
 # 3. Runs XDG autostart apps
 # 4. Better integration with system services
+
+# ~/.xinitrc
+exec openbox-session
+Then create autostart script:
+bashmkdir -p ~/.config/openbox
+nano ~/.config/openbox/autostart
+
+# Add to ~/.xinitrc for auto run everything!
+#!/bin/bash
+# Display config
+~/.screenlayout/dual-monitor.sh &
+# Background
+nitrogen --restore &
+# Panel
+tint2 &
+# Your terminal apps
+xterm &
+konsole &
+# Compositor (optional - makes things smooth)
+picom &
+
+autostart must be executable: chmod +x ~/.config/openbox/autostart
+
+TWO METHODS NOW:
+Method 1 (your current way):
+bash# ~/.xinitrc
+xterm & konsole & exec openbox
+
+Method 2 (session way):
+bash# ~/.xinitrc
+exec openbox-session
+# ~/.config/openbox/autostart
+xterm &
+konsole &
+nitrogen --restore &
 -->
+
+
+
+
+
