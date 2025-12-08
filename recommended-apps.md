@@ -22,6 +22,9 @@ pacman -S btop  # CPU CPU MEM taskmanager like info with live update!
 ```bash
 sudo pacman -S fd  # Modern 'find' replacement
 ```
+```bash
+sudo pacman -S openbox xorg-xclock xterm xorg-apps feh arandr # (xorg-xeyes) Alternative window manager desktop suite by Alex!
+```
 
 <br>
 
