@@ -56,6 +56,7 @@ Usage:
 nitrogen /path/to/wallpapers/  # GUI selector opens
 # Right-click image → Set as wallpaper
 # Preferences → Add directory
+nitrogen --restore &  # Add to ~/.xinitrc, etc's xinitrc, or autostart
 ```
 
 <br>
@@ -204,3 +205,22 @@ allowing you to switch to it using Ctrl+Alt+F8 (or the appropriate F-key).
 
 A smart choice may be to run konsole as the app (not firefox or xterm), then from konsole more apps can be started!
 
+<!--
+OPENBOX vs OPENBOX-SESSION 🪟
+bashopenbox          # Just the window manager (bare minimum)
+openbox-session  # Window manager + session management + autostart
+The difference:
+openbox (what you have now):
+bashexec openbox
+# Runs ONLY the window manager
+# No autostart scripts
+# No session handling
+# Clean slate every time
+openbox-session (recommended):
+bashexec openbox-session
+# Runs openbox + these extras:
+# 1. Executes ~/.config/openbox/autostart.sh
+# 2. Handles session management (proper logout/shutdown)
+# 3. Runs XDG autostart apps
+# 4. Better integration with system services
+-->
