@@ -22,8 +22,14 @@ pacman -S btop  # CPU CPU MEM taskmanager like info with live update!
 ```bash
 sudo pacman -S fd  # Modern 'find' replacement
 ```
+Alternative window manager based "desktop environment) by Alex:
 ```bash
-sudo pacman -S openbox xorg-xclock xterm xorg-apps feh arandr # (xorg-xeyes) Alternative window manager desktop suite by Alex!
+sudo pacman -S openbox xorg-xclock xterm feh arandr # (xorg-apps / xorg-xeyes)  
+```
+Deprecated:
+kfind is replaced by krunner (meta+space) (win+space)  
+```bash
+flatpak install kfind  # Only as flatpak now!
 ```
 
 <br>
