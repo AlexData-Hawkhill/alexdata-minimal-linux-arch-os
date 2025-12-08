@@ -57,3 +57,4 @@ What folder was Vivaldi installed to:
 ```bash
 flatpak info --show-location com.vivaldi.Vivaldi
 ```
+( symlinked: /home/$USER/.var/app/com.vivaldi.Vivaldi/config/vivaldi/Default [/VivaldiThumbnails/] )
