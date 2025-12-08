@@ -1,10 +1,15 @@
 ### 🐧 Openbox Window Manager 🐧
 This window manager can be used as a basic desktop environent.  
 It will let you run graphical applications without a full desktop environment.  
+If you have read this guide before, you're likely here to look for one of these two commands:
 ```bash
-xinit /usr/bin/firefox -- :1    # If you have followed this guide before the use this command!
+xinit /usr/bin/firefox -- :2    #vt2    # If you have followed this guide before the use this command!
 ```
-(_if you have not read this guide before - then read on, and I will explain what you need to know!_)  
+or
+```bash
+startx -- :2    #vt2    # If you have followed this guide before the use this command!
+```
+(_if you have not read this guide before - then read on, and I will explain everything you need to know!_)  
 
 <br>
 
@@ -82,7 +87,10 @@ Log in with your username and password (login as root or normal account).
 ### Best Launch Method (Specific Display Number):
 You can launch an application on a specific, separate X display number without modifying your main .xinitrc file by specifying a display number (e.g., :1).
 ```bash
-xinit /usr/bin/firefox -- :3   # Manually starts on specific X server "display  3" (display does not mean monitor in this case)
+xinit /usr/bin/firefox -- :3   # Manually starts on specific X server "display3" (display means server - not monitor - in this case)
+```
+```bash
+xinit /usr/bin/firefox -- :3 vt3  # This loads it on vt3 or TTY3 if you will! (virtual termial).
 ```
 This method works flawless !! And there is no need to edit any files!
 This runs Firefox on display 1 (or 2, or 3, or 4, or...), which might be on TTY8 (depending on your configuration),  
@@ -96,7 +104,9 @@ the X session terminates, returning you to the TTY login prompt.
 
 <br>
 
-### Alternative - Create or Edit .xinitrc:
+# Alternative  - Automatic loading of Openbox
+
+### Create or Edit your home folders .xinitrc file:
 The startx command uses a script in your home directory named `.xinitrc` to determine what to run.  
 That file is normally loaded when loading in your normal desktop environment.
 If this file doesn't exist, create it by copying the default system one from /etc/X11/xinit/.  
@@ -108,20 +118,31 @@ By doing so we tell the system to "_read our extra file as well as the original 
 This will let us temporarily override the main original xinitrc file, so that we can experiment safely!  
 Delete the `~/.xinitrc file` if something stops working correctly (`rm ~/.xinitrc    # Deletes file!`) and all changes are automatically reset! (`sudo rm ~/.xinitrc    # Deletes file as admin!`)
 
+### Or you can make a new blank .xinitrc yourself
+```bash
+touch ~/.xinitrc    # Create empty file!
+```
+```bash
+touch ~/.xinitrc    # Edit empty file! (F3 to save changes. Ctrl+X to exit nano)
+```
+
 <br>
 
-### Configure .xinitrc to run a gui app:
+### Configure .xinitrc to run a GUI (graphical) app:
 Configure `.xinitrc` to run a single app: Edit your `~/.xinitrc` file using a terminal editor like nano (or vim).  
 (You can also do this via Kate editor and Dolphin filebrowser if logged into a desktop environment like plasma).  
 ```bash
 nano ~/.xinitrc
 ```
-Comment out or remove the default desktop environment/window manager execution lines at the end of the file,  
+```bash
+kate ~/.xinitrc
+```
+Temporary comment out or remove the default desktop environment/window manager execution lines at the end of the file,  
 and replace them with the command to run your specific application.  
 Ensure the last line uses `exec` to manage the session correctly.  
 
 To run just the xterm konsole like GUI app, for example,  
-your final lines would look something like this (commenting out previous exec lines):  
+your final lines would look something like this (commenting out any previous exec lines):  
 ```bash
 # twm &
 # xclock &
@@ -129,7 +150,7 @@ exec xterm
 ```
 
 To run just the firefox browser, for example,  
-your final lines would look something like this (commenting out previous exec lines):  
+your final lines would look something like this (commenting out any previous exec lines):  
 ```bash
 # twm &
 # xclock &
