@@ -51,6 +51,12 @@ The nitrogen lets you set a Window Manager background using easy GUI interface!
 ```bash
 sudo paru -S nitrogen    # If you dont have it- install it! Must have!
 ```
+Usage:
+```bash
+nitrogen /path/to/wallpapers/  # GUI selector opens
+# Right-click image → Set as wallpaper
+# Preferences → Add directory
+```
 
 <br>
 
