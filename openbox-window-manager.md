@@ -258,6 +258,15 @@ exec openbox-session
 xterm &
 konsole &
 nitrogen --restore &
+
+Speedrun test:
+1. Launch OpenBox
+startx -- :2
+2. In xterm/konsole:
+nitrogen ~/Pictures/wallpapers/  # or any image folder
+3. Right-click image → Set as wallpaper
+4. Add to autostart:
+echo "nitrogen --restore &" >> ~/.config/openbox/autostart
 -->
 
 
