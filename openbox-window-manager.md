@@ -1,4 +1,5 @@
 ### 🐧 Openbox Window Manager 🐧
+<!-- https://claude.ai/chat/68f89e49-94cc-49fe-9a44-f8524c1f7070 used for more details -->
 This window manager can be used as a basic desktop environent.  
 It will let you run graphical applications without a full desktop environment.  
 If you have read this guide before, you're likely here to look for one of these two commands:
