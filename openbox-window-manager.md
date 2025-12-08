@@ -43,6 +43,15 @@ The openbox is the Window Manager (it draws all type windows - like those you se
 ```bash
 sudo pacman -S openbox    # If you dont have it- install it! Must have!
 ```
+The feh lets you set a Window Manager background using CLI (command line) commands ! 
+```bash
+sudo pacman -S feh   # If you dont have it- install it! Must have!
+```
+The nitrogen lets you set a Window Manager background using easy GUI interface!  
+```bash
+sudo paru -S nitrogen    # If you dont have it- install it! Must have!
+```
+
 <br>
 
 ### App Packages Needed for testing (may not be installed):
