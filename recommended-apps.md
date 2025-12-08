@@ -19,6 +19,9 @@ pacman -S nvtop # GPU VRAM taskmanager like info with live update!
 ```bash
 pacman -S btop  # CPU CPU MEM taskmanager like info with live update!
 ```
+```bash
+sudo pacman -S fd  # Modern 'find' replacement
+```
 
 <br>
 
